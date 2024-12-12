@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head.ejs') %>
+
+<body>
+    <%- include('./partials/sidebar.ejs') %>
+
+    <div class="right">
+        <div class="righttop">
+            <a href="/anime" class="talent">
+                <div class="talenticon" id="animation"></div>
+                <div class="talentype" >Animation</div>
+            </a>
+            <a href="/music" class="talent">
+                <div class="talenticon" id="music"></div>
+                <!-- <div class="talentype">Music</div> -->
+            </a>
+            <a href="/paintings" class="talent">
+                <div class="talenticon" id="painting"></div>
+                <!-- <div class="talentype">Painting</div> -->
+            </a>
+            <a href="/dance" class="talent">
+                <div class="talenticon" id="dance"></div>
+                <!-- <div class="talentype">Dance</div> -->
+            </a>
+        </div>
+
+        <div class="rightbottom">
+
+            <% if (videos.length > 0) { %>
+                
+                    <% videos.forEach(video => { %>
+                        <a href="/anime/<%= video._id%>" style="text-decoration: none;">
+                            <div class="animationcard" style="width: auto;">
+                                <div class="thumbnail">
+                                    <video controls style=" border-radius: 8px; ">
+                                        <source src="data:<%= video.file.contentType %>;base64,<%= video.file.data.toString('base64') %>" type="<%= video.file.contentType %>">
+                                        Your browser does not support the video element.
+                                    </video>
+                                </div>
+                                <div class="animationcardbottom">
+                                    <div class="creatordp"></div>
+                                    <div class="animationcarddetails">
+                                        <div class="deletetitle">
+                                            <div class="animationtitle"><%= video.title %></div>
+                                            <form action="/anime/<%= video._id %>?_method=DELETE" method="POST" style="position: relative;">
+                                                <button type="submit" class="deleteicon" id="deleteicon"></button>
+                                            </form>
+                                            <div class="deleteicon" id="editicon"></div>
+                                        </div>
+                                        <div class="animationcarddetailsbottom">
+                                            <div class="creatorname"><%= video.artist %></div>
+                                            <div class="genre"><%= video.genre %></div>
+                                        </div>
+                                        <!-- Hidden Elements -->
+                                        <!--
+                                        <p><strong>Description:</strong> <%= video.description %></p>
+                                        <p><strong>Tags:</strong> <%= video.tags.join(', ') || 'No tags' %></p>
+                                        <p><strong>Duration:</strong> <%= video.duration %> seconds</p>
+                                        -->
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    <% }) %>
+                
+            <% } else { %>
+                <p class="no-videos-message">No videos uploaded yet.</p>
+            <% } %>
+        </div>
+    </div>
+</body>
+
+</html>

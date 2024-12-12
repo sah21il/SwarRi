@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head.ejs') %>
+<style>
+    .uploadtitle {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.uploadsubtitle {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.uploadoptions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+.uploadbutton {
+    display: inline-block;
+    padding: 1rem ;
+    font-size: 1rem;
+    width: 10rem;
+    text-align: center;
+    color: #ffffff;
+    background-color: #d1d1d1;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.uploadbutton:hover {
+    background-color: #4f738e;
+}
+</style>
+<body>
+    <!-- Sidebar -->
+    <%- include('./partials/sidebar.ejs') %>
+
+    <!-- Main Content -->
+    <div class="right">
+        <div class="righttop">
+            <a href="/anime" class="talent">
+                <div class="talenticon" id="animation"></div>
+                <!-- <div class="talentype" >Animation</div> -->
+            </a>
+            <a href="/music" class="talent">
+                <div class="talenticon" id="music"></div>
+                <!-- <div class="talentype">Music</div> -->
+            </a>
+            <a href="/paintings" class="talent">
+                <div class="talenticon" id="painting"></div>
+                <!-- <div class="talentype">Painting</div> -->
+            </a>
+            <a href="/dance" class="talent">
+                <div class="talenticon" id="dance"></div>
+                <!-- <div class="talentype">Dance</div> -->
+            </a>
+        </div>
+        <div class="uploadform">
+            <h1 class="uploadtitle">Welcome to the Upload Page</h1>
+            <h3 class="uploadsubtitle">Please select how you'd like to upload your art</h3>
+
+            <!-- Navigation Buttons -->
+            <div class="uploadoptions">
+                <a href="/upload-paint" class="uploadbutton" style="color: black;">Upload Paintings</a>
+                <a href="/upload-music" class="uploadbutton" style="color: black;">Upload Music</a>
+                <a href="/upload-dance" class="uploadbutton" style="color: black;">Upload Dance</a>
+                <a href="/upload-anime" class="uploadbutton" style="color: black;">Upload Animation</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

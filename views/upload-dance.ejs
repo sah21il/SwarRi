@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head.ejs') %>
+
+<body>
+    <%- include('./partials/sidebar.ejs') %>
+
+    <div class="right">
+        <div class="hero">
+            <h1 style="color: #5f94bd; font-family: system-ui; text-align: center;">Upload Your Dance Video</h1>
+            <form action="/dance-videos" method="POST" enctype="multipart/form-data" class="uploadform">
+                <div class="uploadcard">
+                    <label for="title" class="uploadtitle">Video Title</label>
+                    <input type="text" id="title" name="title" placeholder="Enter Video Title" required>
+                </div>
+                <div class="uploadcard">
+                    <label for="description" class="uploadtitle">Video Description</label>
+                    <textarea id="description" name="description" rows="3" placeholder="Enter Video Description" required></textarea>
+                </div>
+                <div class="uploadcard">
+                    <label for="choreographer" class="uploadtitle">Choreographer</label>
+                    <input type="text" id="choreographer" name="choreographer" placeholder="Enter Choreographer Name">
+                </div>
+                <div class="uploadcard">
+                    <label for="genre" class="uploadtitle">Genre</label>
+                    <select id="genre" name="genre">
+                        <option value="hiphop">Hip-Hop</option>
+                        <option value="salsa">Salsa</option>
+                        <option value="classical">Classical</option>
+                        <option value="modern">Modern</option>
+                    </select>
+                </div>
+                <div class="uploadcard">
+                    <label for="tags" class="uploadtitle">Tags (comma-separated)</label>
+                    <input type="text" id="tags" name="tags" placeholder="e.g., energetic, freestyle">
+                </div>
+                <div class="uploadcard">
+                    <label for="file" class="uploadtitle">Upload Video File</label>
+                    <input type="file" id="file" name="file" accept="video/*" required>
+                </div>
+                <div class="uploadcard">
+                    <button type="submit" style="background-color: #5f94bd; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

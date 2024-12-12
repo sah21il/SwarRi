@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head.ejs') %>
+
+<body>
+    
+    <!-- Sidebar -->
+    <%- include('./partials/sidebar.ejs') %>
+
+    <!-- Main Content -->
+    <div class="right">
+        <h1 style="color: #5f94bd; font-family: system-ui; text-align: center;">Upload Your Animation Video</h1>
+        <!-- Form for Animation Video -->
+        <form action="/anime" method="POST" enctype="multipart/form-data" class="uploadform">
+
+            <div class="uploadcard">
+                <label for="uploadtitle" class="uploadtitle">Video Title</label>
+                <input type="text" id="uploadtitle" name="title" placeholder="Enter Video Title" required>
+            </div>
+
+            <div class="uploadcard">
+                <label for="uploaddescription" class="uploadtitle">Video Description</label>
+                <textarea id="uploaddescription" name="description" rows="3" placeholder="Enter Video Description" required></textarea>
+            </div>
+
+            <div class="uploadcard">
+                <label for="uploadartist" class="uploadtitle">Artist</label>
+                <input type="text" id="uploadartist" name="artist" placeholder="Enter Artist Name">
+            </div>
+
+            <div class="uploadcard">
+                <label for="uploadgenre" class="uploadtitle">Genre</label>
+                <input type="text" id="uploadgenre" name="genre" placeholder="e.g., 3D, 2D" required>
+            </div>
+
+            <div class="uploadcard">
+                <label for="uploadtags" class="uploadtitle">Tags (comma-separated)</label>
+                <input type="text" id="uploadtags" name="tags" placeholder="e.g., animation, creativity">
+            </div>
+
+            <div class="uploadcard">
+                <label for="uploadduration" class="uploadtitle">Video Duration (in seconds)</label>
+                <input type="number" id="uploadduration" name="duration" placeholder="e.g., 240" required>
+            </div>
+
+            <div class="uploadcard">
+                <label for="uploadfile" class="uploadtitle">Upload Animation Video</label>
+                <input type="file" id="uploadfile" name="file" accept="video/*" required>
+            </div>
+
+            <div class="uploadcard">
+                <button type="submit" style="background-color: #5f94bd; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Submit</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

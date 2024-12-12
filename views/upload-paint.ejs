@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head.ejs') %>
+
+<body>
+    <%- include('./partials/sidebar.ejs') %>
+
+    <div class="right">
+      <h1 style="color: #5f94bd; font-family: system-ui; text-align: center;">Upload Your Paintings</h1>
+        <form class="uploadform" action="/paintings" method="POST" enctype="multipart/form-data">
+            <div class="uploadcard">
+                <label for="name" class="uploadtitle">Image Title</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="uploadcard">
+                <label for="desc" class="uploadtitle">Image Description</label>
+                <textarea id="desc" name="desc" rows="2" placeholder="Description" required></textarea>
+            </div>
+
+            <div class="uploadcard">
+                <label for="image" class="uploadtitle">Upload Image</label>
+                <input type="file" id="image" name="image" required>
+            </div>
+
+            <div class="uploadcard">
+                <button type="submit" style="background-color: #5f94bd; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Submit</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

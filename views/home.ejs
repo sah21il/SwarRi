@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head.ejs') %>
+</head>
+<body>
+    <%- include('./partials/nav.ejs') %>
+
+    <div id="container" class="container">
+
+        <%- include('./partials/sidebar.ejs') %>
+        <div id="main" class="main" style="background-color: antiquewhite;">
+            <img src="images/file.jpg" style="width: 100%;height: 500px;">
+            <div class="blogs content" >
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                    <h1 style="color: #5f94bd;font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Welcome to SwarRi</h1>
+                    <div>
+                        <h3 style="color: #5f94bd;font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Take Your Art to the Next Level</h3>
+                        <p>Discover an innovative platform for showcasing and streaming art. Whether you’re a creator or an admirer, SwarRi offers a unique experience tailored to your needs.</p>
+                    </div>
+                    <div>
+                        <button type="button" onclick="window.location.href='/get-started'">Get Started</button>
+                    </div>
+                </div>
+                <div style="margin-top: 2rem; text-align: center;">
+                    <h2 style="color: #5f94bd;font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Featured Artists</h2>
+                    <div class="featured-artists">
+                        <div class="artist">
+                            <img src="images/images.jpeg" alt="Artist 1" />
+                            <h4 style="color: #5f94bd;font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Artist 1</h4>
+                            <p>Explore the vibrant works of Artist 1, known for their unique style and creativity.</p>
+                        </div>
+                        <div class="artist">
+                            <img style="width: 250px;height: 250px;" src="images/Makoto_Shinkai,_2023.jpg" alt="Artist 2" />
+                            <h4 style="color: #5f94bd;font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Artist 2</h4>
+                            <p>Immerse yourself in the captivating art of Artist 2, where each piece tells a story.</p>
+                        </div>
+                        <!-- Add more artist sections as needed -->
+                    </div>
+                </div>
+                <div style="margin-top: 2rem; text-align: center;">
+                    <h2 style="color: #5f94bd;font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Why Choose SwarRi?</h2>
+                    <ul >
+                        <li>Stream high-quality art from talented creators worldwide.</li>
+                        <li>Engage with a community of art enthusiasts and creators.</li>
+                        <li>Access exclusive content and live streams from your favorite artists.</li>
+                        <li>Customize your viewing experience with personalized recommendations.</li>
+                    </ul>
+                </div>
+            
+            </div>
+            </div>
+    </div>
+    
+    <%- include('./partials/footer.ejs') %>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

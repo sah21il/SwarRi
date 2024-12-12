@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head.ejs') %>
+    <style>
+        /* Ensure navbar stays on top */
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .video-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            margin-top: 5px; /* Push content below the navbar */
+        }
+
+        .video-box {
+            text-align: center;
+            max-width: 90%; /* Prevent overflow */
+            overflow: hidden;
+            border-radius: 10px;
+            background-color: rgba(173, 173, 173, 0.7); /* Semi-transparent background */
+            padding: 20px;
+        }
+
+        .video-box video {
+            width: 100%; /* Full width */
+            height: auto;
+            max-height: 80vh; /* Limit height */
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .video-details {
+            color: black;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        .video-details h5 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .video-details p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .delete {
+            background-color: #5f94bd;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .delete:hover {
+            background-color: #547692;
+        }
+
+        .no-videos-message {
+            text-align: center;
+            color: gray;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+
+    <!-- Sidebar -->
+    <%- include('./partials/sidebar.ejs') %>
+
+    <!-- Main Content -->
+    <div class="right">
+        <div class="righttop">
+            <a href="/anime" class="talent">
+                <div class="talenticon" id="animation"></div>
+            </a>
+            <a href="/music" class="talent">
+                <div class="talenticon" id="music"></div>
+            </a>
+            <a href="/paintings" class="talent">
+                <div class="talenticon" id="painting"></div>
+            </a>
+            <a href="/dance" class="talent">
+                <div class="talenticon" id="dance"></div>
+            </a>
+        </div>
+        
+        <div class="rightbottom">
+            <% if (video && video.fileUrl) { %>
+            <div class="video-container">
+                <div class="video-box">
+                    <video controls>
+                        <source src="<%= video.fileUrl %>" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-details">
+                        <h5><%= video.title %></h5>
+                        <p><strong>Description:</strong> <%= video.description %></p>
+                        <p><strong>Artist:</strong> <%= video.artist || 'Unknown' %></p>
+                        <p><strong>Genre:</strong> <%= video.genre || 'Unknown' %></p>
+                        <p><strong>Tags:</strong> <%= (video.tags || []).join(', ') || 'None' %></p>
+                        <p><strong>Duration:</strong> <%= video.duration ? video.duration + ' seconds' : 'N/A' %></p>
+                        <form action="/dance-videos/<%= video._id %>?_method=DELETE" method="POST">
+                            <button type="submit" class="delete">Delete Video</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <% } else { %>
+                <p class="no-videos-message">Video not available</p>
+            <% } %>
+        </div>
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>

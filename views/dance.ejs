@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head.ejs') %>
+
+<body>
+    <%- include('./partials/sidebar.ejs') %>
+
+    <div class="right">
+        <div class="righttop">
+            <a href="/anime" class="talent">
+                <div class="talenticon" id="animation"></div>
+                <!-- <div class="talentype" >Animation</div> -->
+            </a>
+            <a href="/music" class="talent">
+                <div class="talenticon" id="music"></div>
+                <!-- <div class="talentype">Music</div> -->
+            </a>
+            <a href="/paintings" class="talent">
+                <div class="talenticon" id="painting"></div>
+                <!-- <div class="talentype">Painting</div> -->
+            </a>
+            <a href="/dance" class="talent">
+                <div class="talenticon" id="dance"></div>
+                <div class="talentype">Dance</div>
+            </a>
+        </div>
+
+        <div class="rightbottom">
+
+            <% if (videos.length > 0) { %>
+                
+                    <% videos.forEach(video => { %>
+                        <a href="/dance-videos/<%= video._id%>" style="text-decoration: none;">
+                            <div class="animationcard" style="width: auto;">
+                                <!-- Video Thumbnail -->
+                                <div class="thumbnail">
+                                    <% if (video.fileUrl) { %>
+                                        <video controls style="border-radius: 8px; ">
+                                            <source src="<%= video.fileUrl %>" type="video/mp4">
+                                            Your browser does not support the video element.
+                                        </video>
+                                    <% } else { %>
+                                        <p style="color: red;">Video file not available. Check video ID: <%= video._id %></p>
+                                    <% } %>
+                                </div>
+                                <!-- Video Details -->
+                                <div class="animationcardbottom">
+                                    <div class="creatordp"></div>
+                                    <div class="animationcarddetails">
+                                        <div class="deletetitle">
+                                            <div class="animationtitle"><%= video.title %></div>
+                                            <form action="/dance-videos/<%= video._id %>?_method=DELETE" method="POST">
+                                                <button type="submit" class="deleteicon" id="deleteicon"></button>
+                                            </form>
+                                            <div class="deleteicon" id="editicon"></div>
+                                        </div>
+                                        <div class="animationcarddetailsbottom">
+                                            <div class="creatorname"><%= video.choreographer || 'Unknown' %></div>
+                                            <div class="genre"><%= video.genre %></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    <% }) %>
+                
+            <% } else { %>
+                <p class="no-videos-message">No videos uploaded yet.</p>
+            <% } %>
+        </div>
+    </div>
+</body>
+
+</html>

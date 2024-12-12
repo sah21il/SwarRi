@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/login.css">
+    <style>
+        /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* background: linear-gradient(to right, #6a11cb, #2575fc);  */
+}
+
+/* Logo Styling */
+.logoo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 100px;
+}
+
+/* Login Container */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    max-width: 1000px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+/* Responsive Layout for Small Screens */
+@media (min-width: 768px) {
+    .login-container {
+        flex-direction: row;
+        height: 70vh;
+    }
+}
+
+/* Form Section */
+.form-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.login-form {
+    width: 100%;
+    max-width: 400px;
+}
+
+.form-image-container {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    object-fit: cover;
+    /* border: 2px solid #6a11cb; */
+}
+
+.login-title {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #333333;
+}
+
+.input-group {
+    width: 100%;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    color: #555555;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+    /* border-color: #6a11cb; */
+    outline: none;
+}
+
+.login-button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #d1d1d1;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.login-button:hover {
+    background-color: #7e7e7e;
+}
+
+/* Action Buttons */
+.action-buttons {
+    margin-top: 15px;
+}
+
+.secondary-button {
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 0.9rem;
+    color: #d1d1d1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.secondary-button:hover {
+    color: #7e7e7e;
+}
+
+/* Image Section */
+.image-section {
+    flex: 1;
+    background: #f0f0f0; /* Generic light gray background */
+    display: none;
+    position: relative;
+}
+
+.image-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1); /* Subtle overlay */
+}
+
+@media (min-width: 768px) {
+    .image-section {
+        display: block;
+    }
+}
+
+    </style>
+    
+</head>
+<body>
+    
+    <div class="login-container">
+
+        <!-- Left Form Section -->
+        <div class="form-section">
+            <div class="login-form">
+                <!-- <img src="/images/progress-image.jpg" alt="Profile Placeholder" class="form-image-container"> -->
+                <h1 class="login-title">Login</h1>
+                <form action="/signin" method="POST">
+                    <div class="input-group">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" placeholder="Email" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="login-button">Login</button>
+
+                    <!-- Action Buttons -->
+                    <div class="action-buttons">
+                        <a href="/forgot-password" class="secondary-button">Forgot Password</a>
+                        <a href="/signup" class="secondary-button">Sign Up</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Right Image Section -->
+        <!-- <div class="image-section">
+            <div class="image-overlay"></div>
+        </div> -->
+    </div>
+</body>
+</html>

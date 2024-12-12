@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .body2 {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container1 {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-image-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-image {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .signup {
+            font-size: 22px;
+            color: #333;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .form-group input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #d1d1d1;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #717070;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 14px;
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        a:hover {
+            color: #0056b3;
+        }
+
+        .message {
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            text-align: center;
+            border-radius: 4px;
+        }
+
+        .message.success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="body2">
+        <div class="container1">
+            
+
+            <form action="/send-otp" method="POST">
+                <!-- Image inside the form -->
+                <div class="form-image-container">
+                    <!-- <img src="/images/progress-image.jpg" alt="Profile Placeholder" class="form-image"> -->
+                </div>
+
+                <div class="signup">SIGN-UP</div>
+
+                <!-- Display messages based on error or success -->
+                <% if (typeof message !== 'undefined' && message) { %>
+                    <div class="message <%= messageType === 'error' ? 'error' : 'success' %>">
+                        <%= message %>
+                    </div>
+                <% } %>
+
+                <!-- Name and Email Fields -->
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit">Get OTP</button>
+
+                <!-- Link to Login Page -->
+                <p>Already a user? <a href="/signin">Login here.</a></p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

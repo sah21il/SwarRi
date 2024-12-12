@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head.ejs') %>
+</head>
+<body>
+    <%- include('./partials/sidebar.ejs') %>
+
+    <div class="right">
+        <div class="righttop">
+            <a href="/anime" class="talent">
+                <div class="talenticon" id="animation"></div>
+                <!-- <div class="talentype" >Animation</div> -->
+            </a>
+            <a href="/music" class="talent">
+                <div class="talenticon" id="music"></div>
+                <div class="talentype">Music</div>
+            </a>
+            <a href="/paintings" class="talent">
+                <div class="talenticon" id="painting"></div>
+                <!-- <div class="talentype">Painting</div> -->
+            </a>
+            <a href="/dance" class="talent">
+                <div class="talenticon" id="dance"></div>
+                <!-- <div class="talentype">Dance</div> -->
+            </a>
+        </div>
+
+        <!-- Bottom Section for Music List -->
+        <div class="rightbottom">
+            <% if (audioFiles.length > 0) { %>
+                        <% audioFiles.forEach(function(audio) { %>
+                            <a href="/music/<%= audio._id%>" class="audio_item" >
+                                
+                                <div class="musiccard">
+                                    <!-- Music Details -->
+                                    <div class="musicdetails">
+                                        <div class="musicname"><%= audio.title %></div>
+                                        <div class="singername"><%= audio.artist || 'Unknown Artist' %></div>
+                                    </div>
+                                    <!-- Audio Player -->
+                                    <audio controls class="musicplayer">
+                                        <source src="data:<%=audio.file.contentType%>;base64,<%= audio.file.data.toString('base64') %>" type="<%= audio.file.contentType %>">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </div>
+                                
+                            </a>
+                        <% }) %>
+                    </div>
+                    
+            <% } else { %>
+                <p class="no-music-message">No audio files uploaded yet.</p>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>
